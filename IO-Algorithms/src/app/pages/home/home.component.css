@@ -1,0 +1,22 @@
+.list-item-box:hover {
+  cursor: pointer;
+}
+
+.list-item-box:hover .list-item-custom{
+  color: yellow !important;
+}
+
+.list-item-custom {
+  letter-spacing: 0.2em;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.list-item-custom:hover {
+  transform: translateY(-5px);
+}
+
+.menu-text {
+  letter-spacing: 0.1em;
+}
+

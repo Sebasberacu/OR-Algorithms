@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="text-center menu-text">
+    <div>
+      <h2>Dynamic Programming Algorithms</h2>
+      <h4 class="text-secondary">By: Sebastián Bermúdez Acuña</h4>
+      <small class="text-secondary">2021110666</small>
+    </div>
+    <div class="mt-4">
+      <ul class="list-group list-group-flush">
+        @for(item of algorithms; track $index){
+          <div
+          class="text-wrap list-item-box"
+          (mouseenter)="showInfo($index)"
+          (mouseleave)="hideInfo()"
+          [routerLink]="['/'+item.route]"
+          >
+            <li class="list-group-item text-center m-3 bg-black text-light list-item-custom">
+              {{item.name}}
+            </li>
+            @if (hoveredIndex === $index) {
+              <div class="info-box p-3 animate__animated animate__fadeInDown">
+                <p>{{ item.info }}</p>
+              </div>
+            }
+          </div>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

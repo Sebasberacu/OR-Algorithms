@@ -1,25 +1,21 @@
 <table class="table table-dark table-bordered border-light">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">-</th> <!-- Default header -->
+      @for(row of this.tableData.rowHeaders; track $index){
+        <th scope="col">{{row}}</th>
+      }
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>fat</td>
-    </tr> 
+    @for(dataRow of this.tableData.matrix; track $index){
+      <tr>
+        <th scope="row">{{this.tableData.rowHeaders[$index]}}</th>
+        @for(data of dataRow; track $index){
+          <td class="text-center">{{data}}</td>
+        }
+      </tr>
+    }
   </tbody>
 
 </table>

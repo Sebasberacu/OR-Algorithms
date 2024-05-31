@@ -2,3 +2,8 @@
 *{
   font-family: "Poppins", Arial, sans-serif;
 }
+
+.header-text{
+  letter-spacing: 0.2em;
+  color: yellow;
+}

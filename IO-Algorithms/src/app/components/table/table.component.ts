@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TableData } from '../../interfaces/table.interface';
 
 @Component({
   selector: 'table-component',
@@ -8,7 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './table.component.css'
 })
 export class TableComponent {
-  @Input() public rows!: number;
-  @Input() public columns!: number;
-  @Input() public data!: any;
+  @Input() public tableData!: TableData;
 }

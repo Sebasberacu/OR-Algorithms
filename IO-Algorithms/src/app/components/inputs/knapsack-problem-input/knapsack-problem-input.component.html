@@ -1,0 +1,29 @@
+<div class="modal fade text-dark" id="fileInputKnapsack" tabindex="-1" aria-labelledby="fileInputModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fileInputModalLabel">Select the input file</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Only CSV files allowed.</p>
+        <input type="file" (change)="onFileChange($event)" class="form-control mb-3" />
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="maxCapacity">Maximum knapsack capacity</span>
+          <input #maxCapacity type="number" class="form-control" placeholder="Maximum knapsack capacity" aria-label="Maximum knapsack capacity" aria-describedby="maxCapacity" min="1" max="20" value="10">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="maxCapacityPerItem">Maximum capacity per item</span>
+          <input #maxCapacityPerItem type="number" class="form-control" placeholder="Maximum capacity per item" aria-label="Maximum capacity per item" aria-describedby="maxCapacityPerItem" min="1" max="10" value="1">
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="confirmFile()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

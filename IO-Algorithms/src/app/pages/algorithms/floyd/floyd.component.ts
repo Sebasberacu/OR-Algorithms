@@ -11,7 +11,6 @@ import { TableData } from '../../../interfaces/table.interface';
   styleUrl: './floyd.component.css'
 })
 export class FloydComponent {
-  public showModal: boolean = true;
 
   inputTableData!: TableData;
   floydSolutions: TableData[] = [];
@@ -28,6 +27,10 @@ export class FloydComponent {
 
   solveFloyd(data: TableData): void {
     this.inputTableData = JSON.parse(JSON.stringify(data)); // Duplicate the object
+    this.floydSolutions = [];
+    this.intermediatesSolutions = [];
+    this.possIntermediate = 0;
+    this.stepsCompleted = false;
 
     this.sumOfNodes = data.matrix.length;
     this.distances = data.matrix.map(row => row.map(cell => (cell === 'X' ? Infinity : parseFloat(cell))));
@@ -35,7 +38,10 @@ export class FloydComponent {
   }
 
   makeNextStep(): void{
-    if (this.possIntermediate >= this.sumOfNodes) this.stepsCompleted = true;
+    if (this.possIntermediate >= this.sumOfNodes){
+      this.stepsCompleted = true;
+      return
+    }
 
     for (let nodeI = 0; nodeI < this.sumOfNodes; nodeI++) {
       for (let nodeJ = 0; nodeJ < this.sumOfNodes; nodeJ++) {

@@ -10,9 +10,13 @@
   <tbody>
     @for(dataRow of this.tableData.matrix; track $index){
       <tr>
-        <th scope="row">{{this.tableData.rowHeaders[$index]}}</th>
+        <th scope="row">{{this.tableData.colHeaders[$index]}}</th>
         @for(data of dataRow; track $index){
-          <td class="text-center">{{data}}</td>
+          @if (data[0] == '-'){
+            <td class="text-center bg-success">{{data.slice(1)}}</td>
+          } @else {
+            <td class="text-center">{{data}}</td>
+          }
         }
       </tr>
     }

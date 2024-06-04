@@ -1,1 +1,39 @@
-<p>sports-series works!</p>
+<div class="d-flex flex-column align-items-center justify-content-center min-vh-100">
+
+  <div class="my-5">
+    <h2 class="header-text">SPORTS SERIES</h2>
+  </div>
+
+  <div class="mb-3">
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#fileInputSportsSeries">
+      Enter Input
+    </button>
+  </div>
+
+  <div class="mb-3">
+    <sports-series-input-component (dataEmiter)="solve($event)"></sports-series-input-component>
+  </div>
+
+  @if(this.tableData){
+    <div class="mt-3 container text-center  animate__animated animate__fadeInDown">
+      <div class="row">
+        <div class="col mx-2">
+          <h5 class="mb-3"><span class="badge rounded-pill text-bg-primary">Chance to win at home: {{this.problemData.homeWinningChanceA}}</span></h5>
+        </div>
+        <div class="col-5 mx-3">
+          <h3 class="mb-3"><span class="badge rounded-pill text-bg-success">Best of {{this.problemData.sumOfGames}}</span></h3>
+        </div>
+        <div class="col mx-2">
+          <h5 class="mb-3"><span class="badge rounded-pill text-bg-danger">Chance to win away: {{this.problemData.awayWinningChanceA}}</span></h5>
+        </div>
+      </div>
+
+      <hr class="border border-warning border-3 opacity-75">
+
+      <table-component [tableData]="this.tableData"></table-component>
+
+      <h4 class="mb-3">The chance of team A winning the series is of {{this.winningPorcentage}}%</h4>
+      <h6 class="mb-3">The chance of team B winning the series is of {{this.losingPorcentage}}%</h6>
+    </div>
+  }
+</div>

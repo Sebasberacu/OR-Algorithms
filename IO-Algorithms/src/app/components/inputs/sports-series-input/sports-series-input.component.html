@@ -1,0 +1,56 @@
+<div class="modal fade text-dark" id="fileInputSportsSeries" tabindex="-1" aria-labelledby="fileInputModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fileInputModalLabel">Select the input file</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="sumOfGames">Number of games</label>
+          <select #sumOfGames class="form-select" id="sumOfGames">
+            <option value="3 (1-2)">3 (1-2)</option>
+            <option value="5 (2-3)">5 (2-3)</option>
+            <option value="7 (4-3)">7 (4-3)</option>
+            <option value="7 (2-3-2)">7 (2-3-2)</option>
+            <option value="9 (4-5)">9 (4-5)</option>
+            <option value="9 (3-3-3)">9 (3-3-3)</option>
+            <option value="11 (4-3-4)">11 (4-3-4)</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Chance of winning at home for team A</span>
+          <span class="input-group-text">0.00</span>
+          <input #homeWinningChanceA type="number" class="form-control" aria-label="Chance of winning at home for A">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Chance of winning away for team A</span>
+          <span class="input-group-text">0.00</span>
+          <input #awayWinningChanceA type="number" class="form-control" aria-label="Chance of winning away for team A">
+        </div>
+
+        <div class="form-check">
+          <input #startsInHome class="form-check-input" type="radio" name="startingGame" id="startsInHome" value="home" checked>
+          <label class="form-check-label" for="startsInHome">
+            First game at home
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="startingGame" id="startsAway" value="away">
+          <label class="form-check-label" for="startsAway">
+            First game away
+          </label>
+        </div>
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="emitData()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

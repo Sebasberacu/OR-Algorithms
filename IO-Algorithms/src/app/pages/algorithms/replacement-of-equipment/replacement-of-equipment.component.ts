@@ -82,7 +82,6 @@ export class ReplacementOfEquipmentComponent {
     this.optimalPath += currentYear.toString(); // Push the initial year (0)
 
     for (let i = 0; i < bestSolutions.length; i++) {
-      console.log(bestSolutions[i]);
       if (bestSolutions[i].nextYear > currentYear) {
         currentYear = bestSolutions[i].nextYear;
         this.optimalPath += ` - ${currentYear}`;

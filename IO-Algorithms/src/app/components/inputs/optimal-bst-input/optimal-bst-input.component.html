@@ -1,0 +1,40 @@
+<div class="modal fade text-dark" id="fileInputOptimalBst" tabindex="-1" aria-labelledby="fileInputModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fileInputModalLabel">Enter the problem information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group mb-3">
+          <label for="sumOfKeysRange" class="form-label">Number of keys</label>
+          <input #sumOfKeysRange (change)="sumOfKeysChanged(sumOfKeysRange.value)" type="range" class="form-range" min="0" max="10" id="sumOfKeysRange" value="0">
+          <div class="container text-center">
+            <p>{{this.sumOfKeys}}</p>
+          </div>
+        </div>
+
+        @for(key of this.keys; track $index){
+          <hr>
+
+          <div class="input-group mb-3 mt-3">
+            <span class="input-group-text">Key {{$index + 1}} identifier</span>
+            <input [(ngModel)]="key.identifier" type="text" class="form-control">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">Key {{$index + 1}} weight</span>
+            <input [(ngModel)]="key.weight" type="number" class="form-control">
+          </div>
+        }
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="emitData()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -33,7 +33,7 @@ export class FloydComponent {
     this.stepsCompleted = false;
 
     this.sumOfNodes = data.matrix.length;
-    this.distances = data.matrix.map(row => row.map(cell => (cell === 'X' ? Infinity : parseFloat(cell))));
+    this.distances = data.matrix.map(row => row.map(cell => (cell === '-' ? Infinity : parseFloat(cell))));
     this.intermediates = data.matrix.map(row => row.map(() => '0'));
   }
 
@@ -51,7 +51,7 @@ export class FloydComponent {
         }
       }
     }
-    const updatedMatrix = this.distances.map(row => row.map(cell => (cell === Infinity ? 'X' : cell.toString()))); // Convert distances back to string representation for TableData
+    const updatedMatrix = this.distances.map(row => row.map(cell => (cell === Infinity ? '-' : cell.toString()))); // Convert distances back to string representation for TableData
     const intermediateSolution = JSON.parse(JSON.stringify(this.intermediates));
     this.floydSolutions.push({ ...this.inputTableData, matrix: updatedMatrix }); // Add intermediate state to solution
     this.intermediatesSolutions.push({ ...this.inputTableData, matrix: intermediateSolution }); // Add intermediate state to solution

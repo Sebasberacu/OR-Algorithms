@@ -1,1 +1,38 @@
-<p>optimal-bst works!</p>
+<div class="d-flex flex-column align-items-center justify-content-center min-vh-100">
+
+  <div class="my-5">
+    <h2 class="header-text">OPTIMAL BINARY SEARCH TREE</h2>
+  </div>
+
+  <div class="mb-3">
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#fileInputOptimalBst">
+      Enter Input
+    </button>
+  </div>
+
+  <div class="mb-3">
+    <optimal-bst-input-component (dataEmiter)="solve($event)"></optimal-bst-input-component>
+  </div>
+
+  @if(this.probabilitiesTable){
+    <div class="mt-3 container text-center  animate__animated animate__fadeInDown">
+      <div class="row">
+        <div class="col mx-2">
+          <h5 class="mb-3"><span class="badge rounded-pill text-bg-primary">Table of Optimal Probabilities</span></h5>
+          <table-component [tableData]="this.probabilitiesTable"></table-component>
+        </div>
+        <div class="col mx-2">
+          <h5 class="mb-3"><span class="badge rounded-pill text-bg-primary">Table of Optimal Paths</span></h5>
+          <table-component [tableData]="this.resultsTable"></table-component>
+        </div>
+      </div>
+
+      <hr class="border border-warning border-3 opacity-75">
+
+
+      <h4 class="mb-3">Optimal average cost is of {{this.probabilitiesTable.matrix[0][this.probabilitiesTable.matrix.length - 1]}}.</h4>
+
+    </div>
+  }
+
+</div>

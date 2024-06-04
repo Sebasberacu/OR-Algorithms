@@ -10,8 +10,6 @@ import { TableData } from '../../../interfaces/table.interface';
   styleUrl: './sports-series-input.component.css'
 })
 export class SportsSeriesInputComponent {
-  selectedFile: File | null = null;
-  csvRecords!: TableData;
   problemData: SportsSeriesData = {} as SportsSeriesData;
 
   @ViewChild('sumOfGames') sumOfGames!: ElementRef;

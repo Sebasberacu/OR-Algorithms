@@ -1,3 +1,8 @@
+.title-header {
+  color: yellow;
+  letter-spacing: 0.2em;
+}
+
 .list-item-box:hover {
   cursor: pointer;
 }

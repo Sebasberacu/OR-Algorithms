@@ -20,7 +20,7 @@ export class OptimalBstComponent {
     this.probabilitiesTable = {} as TableData;
     this.resultsTable = {} as TableData;
 
-    this.initializeProbabilitiesTable(data);
+    this.initializeTables(data);
     this.setStaticProbabilities(data);
 
     let matrix = this.probabilitiesTable.matrix;
@@ -68,7 +68,7 @@ export class OptimalBstComponent {
 
   }
 
-  initializeProbabilitiesTable(data: OptimalBstData){
+  initializeTables(data: OptimalBstData){
     let squaredMatrixN = data.keys.length + 1;
 
     // All matrix in -
@@ -99,11 +99,15 @@ export class OptimalBstComponent {
     let colIndex = 0;
 
     while (rowIndex <= squaredMatrixN && colIndex <= squaredMatrixN){
-      if (rowIndex == colIndex)
+      if (rowIndex == colIndex){
         this.probabilitiesTable.matrix[rowIndex][colIndex] = '0'; // Null probability
+        this.resultsTable.matrix[rowIndex][colIndex] = '0';
+      }
 
-      if (rowIndex == colIndex - 1)
+      if (rowIndex == colIndex - 1){
         this.probabilitiesTable.matrix[rowIndex][colIndex] = data.keys[rowIndex].probability.toString();
+        this.resultsTable.matrix[rowIndex][colIndex] = data.keys[rowIndex].probability.toString();
+      }
 
       // Iterate one row at the time
       if((colIndex + 1) < squaredMatrixN) {

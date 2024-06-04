@@ -1,1 +1,46 @@
-<p>matrix-multiplication works!</p>
+<div class="d-flex flex-column align-items-center justify-content-center min-vh-100">
+
+  <div class="my-5">
+    <h2 class="header-text">MATRIX MULTIPLICATION</h2>
+  </div>
+
+  <div class="mb-3">
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#fileInputMatrixMultiplication">
+      Enter Input
+    </button>
+  </div>
+
+  <div class="mb-3">
+    <matrix-multiplication-input-component (dataEmiter)="solve($event)"></matrix-multiplication-input-component>
+  </div>
+
+  @if(this.valuesTable){
+    <div class="my-3 container text-center">
+      <div class="row">
+        @for (matrix of this.matrices; track $index){
+            <div class="col">
+              <h5>A<small>{{$index + 1}}</small></h5>
+              <span class="badge rounded-pill text-bg-secondary">({{matrix.rows}} x {{matrix.columns}})</span>
+            </div>
+        }
+      </div>
+    </div>
+
+    <div class="mt-3 container text-center  animate__animated animate__fadeInDown">
+      <div class="row">
+        <div class="col mx-2">
+          <h5 class="mb-3"><span class="badge rounded-pill text-bg-primary">Table of Optimal Values</span></h5>
+          <table-component [tableData]="this.valuesTable"></table-component>
+        </div>
+        <div class="col mx-2">
+          <h5 class="mb-3"><span class="badge rounded-pill text-bg-primary">Table of Results</span></h5>
+          <table-component [tableData]="this.resultsTable"></table-component>
+        </div>
+      </div>
+
+      <hr class="border border-warning border-3 opacity-75">
+      <h4>The least amount of multiplications you could have for these matrices is: {{this.valuesTable.matrix[0][this.valuesTable.matrix.length - 1]}}</h4>
+    </div>
+  }
+
+</div>
